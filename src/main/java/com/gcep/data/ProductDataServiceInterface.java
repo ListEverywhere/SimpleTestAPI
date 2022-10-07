@@ -9,6 +9,6 @@ public interface ProductDataServiceInterface {
 	public List<ProductModel> getProducts();
 	public List<ProductModel> searchProducts(String name);
 	public int createProduct(ProductModel product);
-	public ProductModel updateProduct(int id, ProductModel editedProduct);
+	public ProductModel updateProduct(ProductModel editedProduct);
 	public int deleteProduct(int id);
 }

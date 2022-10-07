@@ -73,14 +73,14 @@ public class ProductDataService implements ProductDataServiceInterface {
 	}
 
 	@Override
-	public ProductModel updateProduct(int id, ProductModel editedProduct) {
+	public ProductModel updateProduct(ProductModel editedProduct) {
 		ProductModel result = null;
 		try {
 			int rows = jdbc.update("UPDATE products SET NAME=?, QUANTITY=?, IMAGE_NAME=? WHERE ID=?",
 					editedProduct.getName(),
 					editedProduct.getQuantity(),
 					editedProduct.getImage_name(),
-					id);
+					editedProduct.getId());
 			if (rows == 1) {
 				result = editedProduct;
 			}
@@ -94,7 +94,7 @@ public class ProductDataService implements ProductDataServiceInterface {
 	public int deleteProduct(int id) {
 		int result = 0;
 		try {
-			result = jdbc.update("DELETE products WHERE ID=?", id);
+			result = jdbc.update("DELETE FROM products WHERE ID=?", id);
 			return result;
 		} catch (Exception e) {
 			throw new DatabaseException("An error has occured while trying to delete a product.");
