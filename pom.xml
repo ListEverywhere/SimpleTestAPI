@@ -15,7 +15,7 @@
 	<name>SimpleTestAPI</name>
 	<description>Simple test REST API for POCs</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
